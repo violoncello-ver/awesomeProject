@@ -5,8 +5,16 @@ package main
  fmt（formatの略）というパッケージをインポートしている。(fmt.Println関数を呼び出したいため。)
  fmt.Println関数の大文字から始まるのは、別のパッケージの関数由来かどうかを一目で分かるようにするため。
  逆に小文字の関数はパッケージ内でしか呼び出せない。
+ 複数のパッケージを呼び出す時は()を使う。
+ 標準パッケージ(https://pkg.go.dev/std)
+ パッケージの詳細を知るコマンド（go doc <packageName> [<funcName>]）
 */ 
-import "fmt"
+import (
+	"fmt"
+	"os/user"
+	"time"
+)
+
 
 // main関数より優先される特別な関数
 // 変数が多いコードで初期設定が必要な時などに使う。
@@ -26,9 +34,10 @@ func main() {
 	 必ず初期化する（go mod init <PJName>）
 	 複数のgoコードの実行はmain関数を書き換える or 別PJ作成
 	*/
-	fmt.Println("Hello world", "golang")
+	fmt.Println("Hello world", time.Now())
+	fmt.Println(user.Current())
 
 	// 内部関数呼び出し
 	// bazz()
-	
+
 }
