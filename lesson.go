@@ -38,6 +38,6 @@ func main() {
 	fmt.Println(user.Current())
 
 	// 内部関数呼び出し
-	// bazz()
+	bazz()
 
 }
