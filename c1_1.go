@@ -13,8 +13,8 @@ package main
 */ 
 import (
 	"fmt"
-	"os/user"
-	"time"
+	// "os/user"
+	// "time"
 )
 
 /* init:
@@ -28,9 +28,9 @@ func init() {
 /* Function:
  同じpackage内だと小文字で呼び出せる。
 */
-func bazz() {
-	fmt.Println("Bazz!")
-}
+// func bazz() {
+// 	fmt.Println("Bazz!")
+// }
 
 /* main:
  特別な関数で、コードを実行するとき最初に呼び出される。
@@ -39,10 +39,12 @@ func bazz() {
 	 複数のgoコードの実行はmain関数を書き換える or 別PJ作成
 */
 func main() {
-	fmt.Println("Hello world", time.Now())
-	fmt.Println(user.Current())
+	// fmt.Println("Hello world", time.Now())
+	// fmt.Println(user.Current())
+	// // 内部関数呼び出し
+	// bazz()
 
-	// 内部関数呼び出し
-	bazz()
+	var i int = 1
+	fmt.Println(i)
 
 }
