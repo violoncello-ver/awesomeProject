@@ -128,10 +128,10 @@ func main() {
 	// fmt.Println(strings.Contains(s, "practice"))
 	
 	/* bool:
-		
+		論理演算子は&& || ! を使い、他の言語とそこまで違いがなさそう。
 	*/
-	t, f := true, false
-	fmt.Printf("%T %v\n", t, t)
-	fmt.Printf("%T %v\n", f, f)
+	// t, f := true, false
+	// fmt.Printf("%T %v\n", t, t)
+	// fmt.Printf("%T %v\n", f, f)
 
 }
