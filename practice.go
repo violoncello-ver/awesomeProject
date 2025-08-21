@@ -22,6 +22,7 @@ import (
 	// "os/user"
 	// "time"
 	// "strings"
+	"strconv"
 )
 
 /* init:
@@ -134,4 +135,27 @@ func main() {
 	// fmt.Printf("%T %v\n", t, t)
 	// fmt.Printf("%T %v\n", f, f)
 
+	/* cast:
+		データ型のcast:
+			型変換はtype(変換したい変数)を指定する。
+			※下記の1をキャストして%vの時に%fと同じ出力にならないのは、よしなに1.0よりも１として出力する方が自然であるため。
+		文字列のcast:
+			strconv.Atoi -> string conversion(文字列変換).A(ASCII) to i(Integer)
+	*/
+	// var x int = 1
+	// xx := float64(x)
+	// fmt.Printf("%T %v %f\n", xx, xx, xx)
+	// var s string = "8"
+	// i, _ := strconv.Atoi(s)  // 変数-> 1.変換結果の整数値 (`int`),　2.エラー情報 (`error`) -> 「整数値だけ受け取り、エラーは無視」必ず2つ返すが、2.に_は推奨されていない。
+	// fmt.Printf("%T %v", i, i)
+	// 推奨される書き方↓
+	var s string = "8"
+	i, err := strconv.Atoi(s)
+	if err != nil {
+		fmt.Println("変換エラー:", err)
+		return
+	}
+	fmt.Printf("%T %v", i, i)
+
+	
 }
