@@ -21,6 +21,7 @@ import (
 	"fmt"
 	// "os/user"
 	// "time"
+	// "strings"
 )
 
 /* init:
@@ -103,4 +104,34 @@ func main() {
 	// fmt.Println(1 << 2)  // 0100<-0010 (2番目から左に1シフト) 2^2
 	// fmt.Println(1 << 3)  // 1000<-0100 (3番目から左に1シフト) 2^3
 	
+	/* string:
+		特定の文字を出力:
+		 Goの場合、特定の文字列を出力しよう "Name"[0] とするとASCII Codeで出力される。
+		 文字として取り出したい時は string("Name"[0]) のように囲む必要がある。
+		文字列内の特定の文字の置き換え:
+		 import strings して、文字列操作の関数一覧からstrings.Replace関数を使う。
+		一見すると別扱いの文字列:
+		 文字列リテラル："", ''で囲まれている文字列。配列と違って、何かしら文字を自由に代入することができない。他の言語と若干ルール固いかも？
+		改行:
+		 \n または ''を使って改行
+		意味を持っている記号を文字として出力するには:
+		 \ を使うか、または``で囲う
+	*/
+	// fmt.Println("Go practice"[0])
+	// fmt.Println(string("Go practice"[0]))
+	// var s string = "Go Go practice"
+	// fmt.Println(s)
+	// s = strings.Replace(s, "G", "X", 1)  // （どの文字列、変換元、変換後、何回分？）
+	// fmt.Println(s)
+	// var s string = "Go practice"
+	// fmt.Println(s)
+	// fmt.Println(strings.Contains(s, "practice"))
+	
+	/* bool:
+		
+	*/
+	t, f := true, false
+	fmt.Printf("%T %v\n", t, t)
+	fmt.Printf("%T %v\n", f, f)
+
 }
