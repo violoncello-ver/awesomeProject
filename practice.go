@@ -1,5 +1,5 @@
 /* goの特徴
-書いたコード使ってないと怒られる。
+書いたコードで使ってないのがあると怒られる。
 コーディングスタイル：読みやすさのために、演算子などの位置は一番長い部分に合わせて書く。
 */
 
@@ -22,7 +22,7 @@ import (
 	// "os/user"
 	// "time"
 	// "strings"
-	"strconv"
+	// "strconv"
 )
 
 /* init:
@@ -149,13 +149,79 @@ func main() {
 	// i, _ := strconv.Atoi(s)  // 変数-> 1.変換結果の整数値 (`int`),　2.エラー情報 (`error`) -> 「整数値だけ受け取り、エラーは無視」必ず2つ返すが、2.に_は推奨されていない。
 	// fmt.Printf("%T %v", i, i)
 	// 推奨される書き方↓
-	var s string = "8"
-	i, err := strconv.Atoi(s)
-	if err != nil {
-		fmt.Println("変換エラー:", err)
-		return
-	}
-	fmt.Printf("%T %v", i, i)
+	// var s string = "8"
+	// i, err := strconv.Atoi(s)
+	// if err != nil {
+	// 	fmt.Println("変換エラー:", err)
+	// 	return
+	// }
+	// fmt.Printf("%T %v", i, i)
 
+	/* goのArrayデータ構造
+		Array(配列):
+			固定長（後から長さを変えられない）
+			宣言のみ:
+				arrayName[elements]dataType
+			初期化:
+				arrayName := [elements]{value1, value2...}
+		slice(スライス):
+			可変長（後から長さを変えられる）
+			sliceName := []int{1, 2, 3, 4, 5}から特定の範囲の呼び出し方:
+				[欲しい何番目かの値 = 欲しいIndex = 番号 - 1]
+				範囲は、その「欲しい何番目かの値」以上欲しいIndex値+1でとってくる。
+			要素の追加:
+				append(sliceName, value1, value2...)
+			多次元スライス:
+				var sliceName = [][]int{
+				[]int{value1, value2...},
+				[]int{value1, value2...},
+				...
+					}
+			make関数:
+				
+		Map(マップ):
+			
+		共通点:
+			Array, sliceは値をインデックス指定して変更できる。
+		固定長 or 可変長の見分け方:
+			初期化時に[elements]か[]しているか。
+		
+	*/
+	// var a [2]int
+	// a[0] = 100
+	// a[1] = 200
+	// fmt.Println(a)
+	// a := [2]int{100, 200}
+	// fmt.Println(a)
+	// 初期化:
+	// var board = [2]int{1, 2}
+	// fmt.Println(board)
+	
+
+	// // スライスの呼び出し方:
+	// n := []int{1, 2, 3, 4, 5}
+	// fmt.Println(n[2])
+	// fmt.Println(n[1:4])  // 2 3 4
+	// fmt.Println(n[:])    // 1 2 3 4 5
+	// fmt.Println(n[:4])   // 1 2 3 4
+	// fmt.Println(n[3:5])  // 4 5
+	
+	// n := []int{1, 2, 3, 4, 5}
+	// fmt.Println(n)
+	// n = append(n, 100)
+	// fmt.Println(n)
+	// n = append(n, 200, 300, 400, 500)
+	// fmt.Println(n)
+
+	// var board = [][]int{
+	// 	[]int{0, 1, 2},
+	// 	[]int{3, 4, 5},
+	// 	[]int{6, 7, 8},
+	// }
+	// fmt.Println(board)
+	// fmt.Println(board[1])
+	// fmt.Println(board[1][2])
+
+	
 	
 }
