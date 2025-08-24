@@ -178,7 +178,13 @@ func main() {
 				...
 					}
 			make関数:
-				
+				要素0で初期化されたsliceを作れる。
+				n := make([]int, lengthNum, capacityNum)
+				fmt.Printf("len=%d cap=%d value=%v", len(n), cap(n), n)
+				len()は現状の要素数を表す。
+				cap()は事前に分かっているメモリ(要領)を確保することを表す。appendで要領範囲の要素を追加すると高速で処理できる。
+				capacityNumを省略すると cap=len になる
+			
 		Map(マップ):
 			
 		共通点:
@@ -222,6 +228,14 @@ func main() {
 	// fmt.Println(board[1])
 	// fmt.Println(board[1][2])
 
-	
+	n := make([]int, 3, 5)
+	fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
+	n = append(n, 0, 0)
+	fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
+	n = append(n, 1, 2, 3, 4, 5)
+	fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
+	a := make([]int, 3)
+	fmt.Printf("len=%d cap=%d value=%v", len(a), cap(a), a)
+
 	
 }
