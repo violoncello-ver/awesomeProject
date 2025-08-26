@@ -161,6 +161,7 @@ func main() {
 		Array(配列):
 			固定長（後から長さを変えられない）
 			宣言のみ:
+				a[2]int{value1, value2}
 				arrayName[elements]dataType
 			初期化:
 				arrayName := [elements]{value1, value2...}
@@ -184,14 +185,23 @@ func main() {
 				len()は現状の要素数を表す。
 				cap()は事前に分かっているメモリ(要領)を確保することを表す。appendで要領範囲の要素を追加すると高速で処理できる。
 				capacityNumを省略すると cap=len になる
-			
 		Map(マップ):
-			
+			型が異なる複数の値をKey, Valueの組み合わせで管理する。
+
 		共通点:
 			Array, sliceは値をインデックス指定して変更できる。
+			ByteArray:
+				Array, Sliceで使える。
+				引数をByteで値を受け取り、ASCIIコードとして扱えるのでstring(ByteArray)で文字列を出力できる。（文字列 ↔︎ Byte(ASCIIコード)で扱える）
+				Byte配列にbyte or 文字列を入れる→文字列出力:
+					※書き方注意 []byte{Value1, Value2...} or []byte("文字列")
+					Byte配列にどちらかいれても、出力はValueになる。
+					string(value)すれば文字列が出力する。
+				用途:
+					ネットワークやファイル操作などで利用できる。
+
 		固定長 or 可変長の見分け方:
 			初期化時に[elements]か[]しているか。
-		
 	*/
 	// var a [2]int
 	// a[0] = 100
@@ -228,14 +238,17 @@ func main() {
 	// fmt.Println(board[1])
 	// fmt.Println(board[1][2])
 
-	n := make([]int, 3, 5)
-	fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
-	n = append(n, 0, 0)
-	fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
-	n = append(n, 1, 2, 3, 4, 5)
-	fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
-	a := make([]int, 3)
-	fmt.Printf("len=%d cap=%d value=%v", len(a), cap(a), a)
+	// n := make([]int, 3, 5)
+	// fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
+	// n = append(n, 0, 0)
+	// fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
+	// n = append(n, 1, 2, 3, 4, 5)
+	// fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
+	// a := make([]int, 3)
+	// fmt.Printf("len=%d cap=%d value=%v", len(a), cap(a), a)
 
+	a := []byte{72, 73}
+	fmt.Println(a)
+	fmt.Printf(string(a))
 	
 }
