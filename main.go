@@ -43,12 +43,13 @@ main関数より優先される特別な関数。
 // 		t, f bool 	 = true, false
 // )
 
-// func foo() {
-// 	xi := 1
-// 	fmt.Println(xi)
-// 	xi = 2
-// 	fmt.Println(xi)
-// } 
+// 関数
+func cal(price int, item int) (result int, tax float64){
+	tax = 1.1
+	// intの変数に入れたいからキャストしてる。
+	result = int(float64(price*item) * tax)
+	return result, tax
+}
 
 /* main:
 特別な関数で、コードを実行するとき最初に呼び出される。
@@ -59,13 +60,28 @@ main関数より優先される特別な関数。
 
 // constとvarのoverflowの違い:
 // var big_var int = 9223372036854775807 + 1
-const big_const = 9223372036854775807 + 1
+// const big_const = 9223372036854775807 + 1
 
 func main() {
+	
+	// 返り値を変数に入れる。
+	r, t := cal(100, 2)
+	fmt.Println(r, t)
+
+	// main関数内で定義した関数を変数に入れて呼び出す。
+	// f := func(x int) {
+	// 	fmt.Println("innner func", x)
+	// }
+	// f(1)
+	// main関数内で定義した関数を変数に入れないパターン。 -> 関数リテラル=ラムダ式=無名関数
+	// func(x int) {
+	// 	fmt.Println("inner func", x)
+	// }(1)
+
 
 	// constとvarのoverflowの違い:
 	// fmt.Println(big_var - 1)
-	fmt.Println(big_const - 1)
+	// fmt.Println(big_const - 1)
 
 	/* 複数の変数を宣言する方法:
 	それぞれ初期化しない場合のデフォルトの値が存在する（0 0 "" false false）
@@ -165,19 +181,18 @@ func main() {
 	// }
 	// fmt.Printf("%T %v", i, i)
 
-	/* goのArrayデータ構造
+	/* goのデータ構造
 	Array(配列):
 		固定長（後から長さを変えられない）
 		宣言のみ:
-			a[2]int{value1, value2}
-			arrayName[elements]dataType
+			var arrName [elements]dataType
 		初期化:
-			arrayName := [elements]{value1, value2...}
+			arrName := [elements]dataType{value1, value2...}
 	slice(スライス):
 		可変長（後から長さを変えられる）
 		sliceName := []int{1, 2, 3, 4, 5}から特定の範囲の呼び出し方:
 			[欲しい何番目かの値 = 欲しいIndex = 番号 - 1]
-			範囲は、その「欲しい何番目かの値」以上欲しいIndex値+1でとってくる。
+			範囲は、「欲しい何番目かの値-1」以上欲しい◯番目でとってくる。
 		要素の追加:
 			append(sliceName, value1, value2...)
 		多次元スライス:
@@ -254,12 +269,11 @@ func main() {
 	// a := make([]int, 3)
 	// fmt.Printf("len=%d cap=%d value=%v", len(a), cap(a), a)
 	
-	// a := []byte{72, 73}
-	// fmt.Println(a)
-	// fmt.Printf(string(a))
+	a := []byte{72, 73}
+	fmt.Println(a)
 
-	var a, b string = "Hello", "Go"
-
-	fmt.Println(a, b)
+	var n []int
+	n = append(n, 2)
+	fmt.Println(n)
 
 }
