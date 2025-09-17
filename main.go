@@ -44,12 +44,12 @@ main関数より優先される特別な関数。
 // )
 
 // 関数
-func cal(price int, item int) (result int, tax float64){
-	tax = 1.1
-	// intの変数に入れたいからキャストしてる。
-	result = int(float64(price*item) * tax)
-	return result, tax
-}
+// func cal(price int, item int) (result int, tax float64) {
+// 	tax = 1.1
+// 	// intの変数に入れたいからキャストしてる。
+// 	result = int(float64(price*item) * tax)
+// 	return result, tax
+// }
 
 /* main:
 特別な関数で、コードを実行するとき最初に呼び出される。
@@ -62,11 +62,19 @@ func cal(price int, item int) (result int, tax float64){
 // var big_var int = 9223372036854775807 + 1
 // const big_const = 9223372036854775807 + 1
 
+// 可変長引数の関数
+// func foo(params ...int) {
+// 	fmt.Println(len(params), params)
+// 	for _, param := range params {
+// 		fmt.Println(param)
+// 	}
+// }
+
 func main() {
-	
+
 	// 返り値を変数に入れる。
-	r, t := cal(100, 2)
-	fmt.Println(r, t)
+	// r, t := cal(100, 2)
+	// fmt.Println(r, t)
 
 	// main関数内で定義した関数を変数に入れて呼び出す。
 	// f := func(x int) {
@@ -78,6 +86,12 @@ func main() {
 	// 	fmt.Println("inner func", x)
 	// }(1)
 
+	// 可変長引数 -> Slice
+	// foo(10, 20, 30)
+	// fooDataType = func(...int)
+	// s := []int{1, 2, 3}
+	// fmt.Println(s)
+	// foo(s...)
 
 	// constとvarのoverflowの違い:
 	// fmt.Println(big_var - 1)
@@ -268,7 +282,7 @@ func main() {
 	// fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
 	// a := make([]int, 3)
 	// fmt.Printf("len=%d cap=%d value=%v", len(a), cap(a), a)
-	
+
 	a := []byte{72, 73}
 	fmt.Println(a)
 
