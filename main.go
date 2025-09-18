@@ -17,47 +17,22 @@ package main
 パッケージの詳細を知るコマンド　go doc <packageName> [<funcName>]
 */
 import (
-	"fmt"
+	// "fmt"
+	"log"
 	"os"
 )
 
-// func getOsName() string {
-// 	return "xxx"
-// }
-
-// func foo() {
-// 	// defer延期する
-// 	defer fmt.Println("defer foo")
-// 	fmt.Println("hello foo")
-// }
-
 func main() {
+	// log
+	// log.Println("logging!")
+	// log.Printf("%T %v", "test", "test")
+	// FatallnやFatalfを使うとプログラムが強制終了するから、その先実行されない。
+	// つまり、logのエラーハンドリングがある場合にプログラムを終了させるために使う。
+	// log.Fatalf("%T %v", "test", "test")
 
-	// switch os := getOsName(); os {
-	// case "mac":
-	// 	fmt.Println("mac!!")
-	// case "windows":
-	// 	fmt.Println("Windows!!")
-	// default:
-	// 	fmt.Println("Default!!", os)
-	// }
-
-	// fmt.Println("main world")
-	// foo()
-	// defer fmt.Println("main defer 1")
-	// defer fmt.Println("main defer 2")
-	// defer fmt.Println("main defer 3")
-	// fmt.Println("main hello")
-
-	// deferの動き
-	// 関数、mainそれぞれにdeferがある場合。
-	// 関数のdefer -> mainのdefer（複数あったら、古い(上から定義された)ものは最後に来る。）
-
-	// deferどこで使うん？ -> ファイルの閉じ忘れとか
-	// file, _ := os.Open("./main.go")
-	// defer file.Close()
-	// data := make([]byte, 100)
-	// file.Read(data)
-	// fmt.Println(data)
-	// fmt.Println(string(data))
+	_, err := os.Open("fdafada")
+	if err != nil {
+		log.Fatalln("Exit\n", err)
+	}
+	log.Println("logging!")
 }
