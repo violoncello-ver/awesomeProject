@@ -20,29 +20,37 @@ import (
 	"fmt"
 )
 
-func one(x *int) {
-	*x = 1
-}
-
 func main() {
 
 	// pointer
-	// &は値が入っているアドレスを出す
-	// *はアドレス先の値を出す
-	var n int = 100
-	one(&n) // pointer
-	fmt.Println(n)
-	fmt.Println(&n)
-	fmt.Println(*&n)
-	fmt.Println(&*&n)
-	
-	
-	// var n int = 100
-	// fmt.Println(n)
-	// fmt.Println(&n)
-	
-	// var p *int = &n
+	// new
+	// var p *int = new(int)
 	// fmt.Println(p)
-	// fmt.Println(*p)
+	// fmt.Println(*p) // 初期値0
+	// *p++
+	// fmt.Println(*p) // 初期値1
+
+	// var p2 *int
+	// fmt.Println(p2)
+
+	// makeとnewの共通点：どちらもメモリ確保してる。
+	// ポインタを返すかそうじゃないか。
+	// []int
+	// map[string]int
+	// *int
+	// s := make([]int, 0)
+	// fmt.Printf("%T\n", s)
+	
+	// m := make(map[string]int)
+	// fmt.Printf("%T\n", m)
+
+	// var p *int = new(int)
+	// fmt.Printf("%T\n", p)
+
+	ch := make(chan int)
+	fmt.Printf("%T\n", ch)
+	
+	var st = new(struct{})
+	fmt.Printf("%T\n", st)
 
 }
