@@ -17,22 +17,32 @@ package main
 パッケージの詳細を知るコマンド　go doc <packageName> [<funcName>]
 */
 import (
-	// "fmt"
-	"log"
-	"os"
+	"fmt"
 )
 
-func main() {
-	// log
-	// log.Println("logging!")
-	// log.Printf("%T %v", "test", "test")
-	// FatallnやFatalfを使うとプログラムが強制終了するから、その先実行されない。
-	// つまり、logのエラーハンドリングがある場合にプログラムを終了させるために使う。
-	// log.Fatalf("%T %v", "test", "test")
+func one(x *int) {
+	*x = 1
+}
 
-	_, err := os.Open("fdafada")
-	if err != nil {
-		log.Fatalln("Exit\n", err)
-	}
-	log.Println("logging!")
+func main() {
+
+	// pointer
+	// &は値が入っているアドレスを出す
+	// *はアドレス先の値を出す
+	var n int = 100
+	one(&n) // pointer
+	fmt.Println(n)
+	fmt.Println(&n)
+	fmt.Println(*&n)
+	fmt.Println(&*&n)
+	
+	
+	// var n int = 100
+	// fmt.Println(n)
+	// fmt.Println(&n)
+	
+	// var p *int = &n
+	// fmt.Println(p)
+	// fmt.Println(*p)
+
 }
