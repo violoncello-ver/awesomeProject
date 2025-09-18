@@ -20,37 +20,27 @@ import (
 	"fmt"
 )
 
+// struct
+type Vertex struct {
+	X int
+	Y int
+	S string
+}
+
+func changeVertex(v Vertex) {
+	v.X = 1000
+}
+
+func changeVertex2(v *Vertex) {
+	v.X = 1000
+}
+
 func main() {
+	v := Vertex{1 ,2 ,"test"}
+	changeVertex(v)
+	fmt.Println(v)
 
-	// pointer
-	// new
-	// var p *int = new(int)
-	// fmt.Println(p)
-	// fmt.Println(*p) // 初期値0
-	// *p++
-	// fmt.Println(*p) // 初期値1
-
-	// var p2 *int
-	// fmt.Println(p2)
-
-	// makeとnewの共通点：どちらもメモリ確保してる。
-	// ポインタを返すかそうじゃないか。
-	// []int
-	// map[string]int
-	// *int
-	// s := make([]int, 0)
-	// fmt.Printf("%T\n", s)
-	
-	// m := make(map[string]int)
-	// fmt.Printf("%T\n", m)
-
-	// var p *int = new(int)
-	// fmt.Printf("%T\n", p)
-
-	ch := make(chan int)
-	fmt.Printf("%T\n", ch)
-	
-	var st = new(struct{})
-	fmt.Printf("%T\n", st)
-
+	v2 := &Vertex{1 ,2 ,"test"}
+	changeVertex2(v2)
+	fmt.Println(v2)
 }
